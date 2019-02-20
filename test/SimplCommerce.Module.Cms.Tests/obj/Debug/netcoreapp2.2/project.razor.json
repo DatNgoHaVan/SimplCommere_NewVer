@@ -1,0 +1,14 @@
+{
+  "ProjectFilePath": "/mnt/3B710B7935906684/Training/SimplCommerce_NewVer/test/SimplCommerce.Module.Cms.Tests/SimplCommerce.Module.Cms.Tests.csproj",
+  "TargetFramework": "netcoreapp2.2",
+  "TagHelpers": [],
+  "Configuration": {
+    "ConfigurationName": "UnsupportedRazor",
+    "LanguageVersion": "1.0",
+    "Extensions": [
+      {
+        "ExtensionName": "UnsupportedRazorExtension"
+      }
+    ]
+  }
+}

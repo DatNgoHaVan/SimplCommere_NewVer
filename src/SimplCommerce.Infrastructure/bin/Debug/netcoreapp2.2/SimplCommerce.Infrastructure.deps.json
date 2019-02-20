@@ -1,0 +1,180 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v2.2",
+    "signature": "b17deb420ccd5a89a461bcfd68da4a3467b09df0"
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v2.2": {
+      "SimplCommerce.Infrastructure/1.0.0": {
+        "dependencies": {
+          "MediatR": "6.0.0",
+          "Microsoft.NETCore.App": "2.2.0",
+          "cloudscribe.Web.Pagination": "2.1.7",
+          "ncrontab": "3.3.0"
+        },
+        "runtime": {
+          "SimplCommerce.Infrastructure.dll": {}
+        }
+      },
+      "cloudscribe.Pagination.Models/1.0.4": {
+        "dependencies": {
+          "NETStandard.Library": "2.0.3",
+          "System.Linq.Queryable": "4.3.0"
+        },
+        "runtime": {
+          "lib/netstandard1.6/cloudscribe.Pagination.Models.dll": {
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
+          }
+        }
+      },
+      "cloudscribe.Web.Pagination/2.1.7": {
+        "dependencies": {
+          "System.Linq.Queryable": "4.3.0",
+          "cloudscribe.Pagination.Models": "1.0.4"
+        },
+        "runtime": {
+          "lib/netstandard2.0/cloudscribe.Web.Pagination.dll": {
+            "assemblyVersion": "2.1.7.0",
+            "fileVersion": "2.1.7.0"
+          }
+        }
+      },
+      "MediatR/6.0.0": {
+        "runtime": {
+          "lib/netstandard2.0/MediatR.dll": {
+            "assemblyVersion": "6.0.0.0",
+            "fileVersion": "6.0.0.0"
+          }
+        }
+      },
+      "Microsoft.NETCore.App/2.2.0": {
+        "dependencies": {
+          "Microsoft.NETCore.DotNetHostPolicy": "2.2.0",
+          "Microsoft.NETCore.Platforms": "2.2.0",
+          "Microsoft.NETCore.Targets": "2.0.0",
+          "NETStandard.Library": "2.0.3"
+        }
+      },
+      "Microsoft.NETCore.DotNetAppHost/2.2.0": {},
+      "Microsoft.NETCore.DotNetHostPolicy/2.2.0": {
+        "dependencies": {
+          "Microsoft.NETCore.DotNetHostResolver": "2.2.0"
+        }
+      },
+      "Microsoft.NETCore.DotNetHostResolver/2.2.0": {
+        "dependencies": {
+          "Microsoft.NETCore.DotNetAppHost": "2.2.0"
+        }
+      },
+      "Microsoft.NETCore.Platforms/2.2.0": {},
+      "Microsoft.NETCore.Targets/2.0.0": {},
+      "ncrontab/3.3.0": {
+        "runtime": {
+          "lib/netstandard1.0/NCrontab.dll": {
+            "assemblyVersion": "3.2.20120.0",
+            "fileVersion": "3.2.20120.652"
+          }
+        }
+      },
+      "NETStandard.Library/2.0.3": {
+        "dependencies": {
+          "Microsoft.NETCore.Platforms": "2.2.0"
+        }
+      },
+      "System.Linq.Queryable/4.3.0": {}
+    }
+  },
+  "libraries": {
+    "SimplCommerce.Infrastructure/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "cloudscribe.Pagination.Models/1.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-XAv/55/oWxhFd7pIeaAQxIyOjCL3lXoqM84/qgZ0MjsscNsHkLGqTfPbtkHZRdtCH9uygRXEc3/bjbFpVOSMRg==",
+      "path": "cloudscribe.pagination.models/1.0.4",
+      "hashPath": "cloudscribe.pagination.models.1.0.4.nupkg.sha512"
+    },
+    "cloudscribe.Web.Pagination/2.1.7": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-P/VLdEfv/vqNbERL7foZLQtUPPMovNsRUQmhDk8b8JErZP8zIu4nMQqzMvtoRRVqKMSBbHB2ayFkgOKEEHcOeQ==",
+      "path": "cloudscribe.web.pagination/2.1.7",
+      "hashPath": "cloudscribe.web.pagination.2.1.7.nupkg.sha512"
+    },
+    "MediatR/6.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-nQrQ4Ngy5eyS6Oi53e9oreZ8hl6RJOv8ohNExA/QZdnshLySsVUEAAqTDIEOobjPzwQ2itTB5fukdfRV4eGbQQ==",
+      "path": "mediatr/6.0.0",
+      "hashPath": "mediatr.6.0.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.App/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-QU8taCyeyePwatrj+h+750lMnsPCq3YPaGmsdtSHXPCjDyjto2KT7QDNVet0oRliX4PjaINpyg0Yzd9DnQ/Wkw==",
+      "path": "microsoft.netcore.app/2.2.0",
+      "hashPath": "microsoft.netcore.app.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.DotNetAppHost/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-qIrVLupwT2NYTrf7KM7Nh+mJr36V5MITVRjyGOByVVCwGmQgQmI/6bjZYQv+QdExi4Cm87eCKJX9FdT6nc00Xg==",
+      "path": "microsoft.netcore.dotnetapphost/2.2.0",
+      "hashPath": "microsoft.netcore.dotnetapphost.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.DotNetHostPolicy/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5Xvh/3bDr6YAl6TKfeONvRDZ9QOmvVmzFzA0M6g8uubWdf5/o6qdVOqByFBT/fhjVb6okP0E5+v1oxh1Pk+c+w==",
+      "path": "microsoft.netcore.dotnethostpolicy/2.2.0",
+      "hashPath": "microsoft.netcore.dotnethostpolicy.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.DotNetHostResolver/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Q3j3KC2ugqIVasf7pO4NRDEn7GysZX3ZH6fAHfbjrP8cYXY9cmHeFcbaniw36q8kFhsPt2EnRHzSsLBpbG6l2Q==",
+      "path": "microsoft.netcore.dotnethostresolver/2.2.0",
+      "hashPath": "microsoft.netcore.dotnethostresolver.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Platforms/2.2.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-39+GVHdbm+cmoOjdvm+fhiMbddnuVyUlBdYS8Yhn5xsNaBoTXpgBsxQQlI2Sv9EjIP0F+itG6yrDaOM2OEGupQ==",
+      "path": "microsoft.netcore.platforms/2.2.0",
+      "hashPath": "microsoft.netcore.platforms.2.2.0.nupkg.sha512"
+    },
+    "Microsoft.NETCore.Targets/2.0.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-odP/tJj1z6GylFpNo7pMtbd/xQgTC3Ex2If63dRTL38bBNMwsBnJ+RceUIyHdRBC0oik/3NehYT+oECwBhIM3Q==",
+      "path": "microsoft.netcore.targets/2.0.0",
+      "hashPath": "microsoft.netcore.targets.2.0.0.nupkg.sha512"
+    },
+    "ncrontab/3.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Q0/hJ/U4ZdJsiIqzzO4TnLoc9M1eW3TS3vZ+hnXiv9/XFHXomsiSPuBJNnpMjwoUiSwM2P3o8ocjFK+dcuDG8g==",
+      "path": "ncrontab/3.3.0",
+      "hashPath": "ncrontab.3.3.0.nupkg.sha512"
+    },
+    "NETStandard.Library/2.0.3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-st47PosZSHrjECdjeIzZQbzivYBJFv6P2nv4cj2ypdI204DO+vZ7l5raGMiX4eXMJ53RfOIg+/s4DHVZ54Nu2A==",
+      "path": "netstandard.library/2.0.3",
+      "hashPath": "netstandard.library.2.0.3.nupkg.sha512"
+    },
+    "System.Linq.Queryable/4.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-wdbQgzMijyDkBQySuqYnDcK/V70V6KIUUQdXpkXShHbgQRn0bn9wY3ar0VnsDwCcwu8ig6XBrpC2EU2xK+TuQg==",
+      "path": "system.linq.queryable/4.3.0",
+      "hashPath": "system.linq.queryable.4.3.0.nupkg.sha512"
+    }
+  }
+}

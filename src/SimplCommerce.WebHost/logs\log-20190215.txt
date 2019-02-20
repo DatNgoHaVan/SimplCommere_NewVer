@@ -1,0 +1,782 @@
+2019-02-15 10:31:15.009 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"where ((([x].PublishStart != null) AndAlso ([x].PublishStart < Convert(DateTimeOffset.Now, Nullable`1))) AndAlso (Not(([x].PublishEnd != null)) OrElse ([x].PublishEnd > Convert(DateTimeOffset.Now, Nullable`1))))"' could not be translated and will be evaluated locally.
+2019-02-15 10:31:34.789 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 10:31:34.808 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 10:31:34.809 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 10:32:49.240 +07:00 [Error] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }] Failed executing DbCommand ("17"ms) [Parameters=["@__category_Id_0='?' (DbType = Int64), @__searchOption_MaxPrice_Value_1='?' (DbType = Decimal), @__searchOption_MaxRating_Value_2='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)::INT
+FROM \"Catalog_Product\" AS x
+WHERE (((EXISTS (
+    SELECT 1
+    FROM \"Catalog_ProductCategory\" AS c
+    WHERE (c.\"CategoryId\" = @__category_Id_0) AND (x.\"Id\" = c.\"ProductId\")) AND (x.\"IsPublished\" = TRUE)) AND (x.\"IsVisibleIndividually\" = TRUE)) AND (x.\"Price\" <= @__searchOption_MaxPrice_Value_1)) AND (x.\"RatingAverage\" <= @__searchOption_MaxRating_Value_2)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+2019-02-15 10:32:49.341 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-02-15 10:32:49.354 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)
+2019-02-15 10:33:05.604 +07:00 [Error] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }] Failed executing DbCommand ("569"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""CREATE TABLE \"ActivityLog_ActivityType\" (
+    \"Id\" bigserial NOT NULL,
+    \"Name\" character varying(450) NOT NULL,
+    CONSTRAINT \"PK_ActivityLog_ActivityType\" PRIMARY KEY (\"Id\")
+);"
+Npgsql.PostgresException (0x80004005): 42P07: relation "ActivityLog_ActivityType" already exists
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass161_0.<<ReadMessage>g__ReadMessageLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass161_0.<<ReadMessage>g__ReadMessageLong|0>d.MoveNext() in C:\projects\npgsql\src\Npgsql\NpgsqlConnector.cs:line 1032
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming) in C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:line 489
+   at Npgsql.NpgsqlDataReader.NextResult() in C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:line 332
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1218
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1042
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1025
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+2019-02-15 10:33:05.614 +07:00 [Error] [Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware] [{ Id: 7, Name: "MigrationsEndPointException" }] An error occurred while applying the migrations for '"SimplCommerce.Module.Core.Data.SimplDbContext"'. See InnerException for details:
+Npgsql.PostgresException (0x80004005): 42P07: relation "ActivityLog_ActivityType" already exists
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass161_0.<<ReadMessage>g__ReadMessageLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass161_0.<<ReadMessage>g__ReadMessageLong|0>d.MoveNext() in C:\projects\npgsql\src\Npgsql\NpgsqlConnector.cs:line 1032
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming) in C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:line 489
+   at Npgsql.NpgsqlDataReader.NextResult() in C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:line 332
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1218
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1042
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1025
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+2019-02-15 10:33:05.617 +07:00 [Error] [Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware] [{ Id: 1, Name: "UnhandledException" }] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: An error occurred while applying the migrations for 'SimplCommerce.Module.Core.Data.SimplDbContext'. See InnerException for details.Npgsql.PostgresException (0x80004005): 42P07: relation "ActivityLog_ActivityType" already exists
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass161_0.<<ReadMessage>g__ReadMessageLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass161_0.<<ReadMessage>g__ReadMessageLong|0>d.MoveNext() in C:\projects\npgsql\src\Npgsql\NpgsqlConnector.cs:line 1032
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming) in C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:line 489
+   at Npgsql.NpgsqlDataReader.NextResult() in C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:line 332
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1218
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1042
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1025
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context) ---> Npgsql.PostgresException: 42P07: relation "ActivityLog_ActivityType" already exists
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass161_0.<<ReadMessage>g__ReadMessageLong|0>d.MoveNext()
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlConnector.<>c__DisplayClass161_0.<<ReadMessage>g__ReadMessageLong|0>d.MoveNext() in C:\projects\npgsql\src\Npgsql\NpgsqlConnector.cs:line 1032
+--- End of stack trace from previous location where exception was thrown ---
+   at Npgsql.NpgsqlDataReader.NextResult(Boolean async, Boolean isConsuming) in C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:line 489
+   at Npgsql.NpgsqlDataReader.NextResult() in C:\projects\npgsql\src\Npgsql\NpgsqlDataReader.cs:line 332
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1218
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery(Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1042
+   at Npgsql.NpgsqlCommand.ExecuteNonQuery() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1025
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.MigrationCommand.ExecuteNonQuery(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.MigrationCommandExecutor.ExecuteNonQuery(IEnumerable`1 migrationCommands, IRelationalConnection connection)
+   at Microsoft.EntityFrameworkCore.Migrations.Internal.Migrator.Migrate(String targetMigration)
+   at Microsoft.EntityFrameworkCore.RelationalDatabaseFacadeExtensions.Migrate(DatabaseFacade databaseFacade)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-15 10:34:11.595 +07:00 [Error] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }] Failed executing DbCommand ("0"ms) [Parameters=["@__category_Id_0='?' (DbType = Int64), @__searchOption_MaxPrice_Value_1='?' (DbType = Decimal), @__searchOption_MaxRating_Value_2='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)::INT
+FROM \"Catalog_Product\" AS x
+WHERE (((EXISTS (
+    SELECT 1
+    FROM \"Catalog_ProductCategory\" AS c
+    WHERE (c.\"CategoryId\" = @__category_Id_0) AND (x.\"Id\" = c.\"ProductId\")) AND (x.\"IsPublished\" = TRUE)) AND (x.\"IsVisibleIndividually\" = TRUE)) AND (x.\"Price\" <= @__searchOption_MaxPrice_Value_1)) AND (x.\"RatingAverage\" <= @__searchOption_MaxRating_Value_2)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+2019-02-15 10:34:11.597 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-02-15 10:34:11.600 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)
+2019-02-15 10:34:12.964 +07:00 [Error] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }] Failed executing DbCommand ("0"ms) [Parameters=["@__category_Id_0='?' (DbType = Int64), @__searchOption_MaxPrice_Value_1='?' (DbType = Decimal), @__searchOption_MaxRating_Value_2='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)::INT
+FROM \"Catalog_Product\" AS x
+WHERE (((EXISTS (
+    SELECT 1
+    FROM \"Catalog_ProductCategory\" AS c
+    WHERE (c.\"CategoryId\" = @__category_Id_0) AND (x.\"Id\" = c.\"ProductId\")) AND (x.\"IsPublished\" = TRUE)) AND (x.\"IsVisibleIndividually\" = TRUE)) AND (x.\"Price\" <= @__searchOption_MaxPrice_Value_1)) AND (x.\"RatingAverage\" <= @__searchOption_MaxRating_Value_2)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+2019-02-15 10:34:12.965 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-02-15 10:34:12.967 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)
+2019-02-15 10:34:13.877 +07:00 [Error] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }] Failed executing DbCommand ("0"ms) [Parameters=["@__category_Id_0='?' (DbType = Int64), @__searchOption_MaxPrice_Value_1='?' (DbType = Decimal), @__searchOption_MaxRating_Value_2='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)::INT
+FROM \"Catalog_Product\" AS x
+WHERE (((EXISTS (
+    SELECT 1
+    FROM \"Catalog_ProductCategory\" AS c
+    WHERE (c.\"CategoryId\" = @__category_Id_0) AND (x.\"Id\" = c.\"ProductId\")) AND (x.\"IsPublished\" = TRUE)) AND (x.\"IsVisibleIndividually\" = TRUE)) AND (x.\"Price\" <= @__searchOption_MaxPrice_Value_1)) AND (x.\"RatingAverage\" <= @__searchOption_MaxRating_Value_2)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+2019-02-15 10:34:13.879 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-02-15 10:34:13.881 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)
+2019-02-15 10:34:18.103 +07:00 [Error] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }] Failed executing DbCommand ("0"ms) [Parameters=["@__category_Id_0='?' (DbType = Int64), @__searchOption_MaxPrice_Value_1='?' (DbType = Decimal), @__searchOption_MaxRating_Value_2='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)::INT
+FROM \"Catalog_Product\" AS x
+WHERE (((EXISTS (
+    SELECT 1
+    FROM \"Catalog_ProductCategory\" AS c
+    WHERE (c.\"CategoryId\" = @__category_Id_0) AND (x.\"Id\" = c.\"ProductId\")) AND (x.\"IsPublished\" = TRUE)) AND (x.\"IsVisibleIndividually\" = TRUE)) AND (x.\"Price\" <= @__searchOption_MaxPrice_Value_1)) AND (x.\"RatingAverage\" <= @__searchOption_MaxRating_Value_2)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+2019-02-15 10:34:18.106 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-02-15 10:34:18.107 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)
+2019-02-15 10:34:27.621 +07:00 [Error] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }] Failed executing DbCommand ("0"ms) [Parameters=["@__category_Id_0='?' (DbType = Int64), @__searchOption_MaxRating_Value_1='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)::INT
+FROM \"Catalog_Product\" AS x
+WHERE ((EXISTS (
+    SELECT 1
+    FROM \"Catalog_ProductCategory\" AS c
+    WHERE (c.\"CategoryId\" = @__category_Id_0) AND (x.\"Id\" = c.\"ProductId\")) AND (x.\"IsPublished\" = TRUE)) AND (x.\"IsVisibleIndividually\" = TRUE)) AND (x.\"RatingAverage\" <= @__searchOption_MaxRating_Value_1)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+2019-02-15 10:34:27.623 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-02-15 10:34:27.625 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)
+2019-02-15 10:34:30.375 +07:00 [Error] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }] Failed executing DbCommand ("1"ms) [Parameters=["@__category_Id_0='?' (DbType = Int64), @__searchOption_MaxPrice_Value_1='?' (DbType = Decimal), @__searchOption_MaxRating_Value_2='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)::INT
+FROM \"Catalog_Product\" AS x
+WHERE (((EXISTS (
+    SELECT 1
+    FROM \"Catalog_ProductCategory\" AS c
+    WHERE (c.\"CategoryId\" = @__category_Id_0) AND (x.\"Id\" = c.\"ProductId\")) AND (x.\"IsPublished\" = TRUE)) AND (x.\"IsVisibleIndividually\" = TRUE)) AND (x.\"Price\" <= @__searchOption_MaxPrice_Value_1)) AND (x.\"RatingAverage\" <= @__searchOption_MaxRating_Value_2)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+2019-02-15 10:34:30.377 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-02-15 10:34:30.379 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)
+2019-02-15 10:34:31.042 +07:00 [Error] [Microsoft.EntityFrameworkCore.Database.Command] [{ Id: 20102, Name: "Microsoft.EntityFrameworkCore.Database.Command.CommandError" }] Failed executing DbCommand ("0"ms) [Parameters=["@__category_Id_0='?' (DbType = Int64), @__searchOption_MaxPrice_Value_1='?' (DbType = Decimal), @__searchOption_MaxRating_Value_2='?' (DbType = Double)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)::INT
+FROM \"Catalog_Product\" AS x
+WHERE (((EXISTS (
+    SELECT 1
+    FROM \"Catalog_ProductCategory\" AS c
+    WHERE (c.\"CategoryId\" = @__category_Id_0) AND (x.\"Id\" = c.\"ProductId\")) AND (x.\"IsPublished\" = TRUE)) AND (x.\"IsVisibleIndividually\" = TRUE)) AND (x.\"Price\" <= @__searchOption_MaxPrice_Value_1)) AND (x.\"RatingAverage\" <= @__searchOption_MaxRating_Value_2)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+2019-02-15 10:34:31.044 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+2019-02-15 10:34:31.045 +07:00 [Error] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10100, Name: "Microsoft.EntityFrameworkCore.Query.QueryIterationFailed" }] An exception occurred while iterating over the results of a query for context type '"SimplCommerce.Module.Core.Data.SimplDbContext"'."
+""System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)"
+System.InvalidCastException: Can't write CLR type System.Int32 with handler type DoubleHandler
+   at lambda_method(Closure , NpgsqlTypeHandler , Object , NpgsqlLengthCache& , NpgsqlParameter )
+   at Npgsql.NpgsqlParameter.ValidateAndGetLength() in C:\projects\npgsql\src\Npgsql\NpgsqlParameter.cs:line 553
+   at Npgsql.NpgsqlCommand.ValidateParameters() in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 793
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior, Boolean async, CancellationToken cancellationToken) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1140
+   at Npgsql.NpgsqlCommand.ExecuteDbDataReader(CommandBehavior behavior) in C:\projects\npgsql\src\Npgsql\NpgsqlCommand.cs:line 1130
+   at System.Data.Common.DbCommand.ExecuteReader()
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.Execute(IRelationalConnection connection, DbCommandMethod executeMethod, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Storage.Internal.RelationalCommand.ExecuteReader(IRelationalConnection connection, IReadOnlyDictionary`2 parameterValues)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.BufferlessMoveNext(DbContext _, Boolean buffer)
+   at Npgsql.EntityFrameworkCore.PostgreSQL.Storage.Internal.NpgsqlExecutionStrategy.Execute[TState,TResult](TState state, Func`3 operation, Func`3 verifySucceeded) in C:\projects\npgsql-entityframeworkcore-postgresql\src\EFCore.PG\Storage\Internal\NpgsqlExecutionStrategy.cs:line 28
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryingEnumerable`1.Enumerator.MoveNext()
+   at Microsoft.EntityFrameworkCore.Query.QueryMethodProvider.GetResult[TResult](IEnumerable`1 valueBuffers, Boolean throwOnNullResult)
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ResultEnumerable`1.GetEnumerator()
+   at Microsoft.EntityFrameworkCore.Query.Internal.LinqOperatorProvider.ExceptionInterceptor`1.EnumeratorExceptionInterceptor.MoveNext()
+   at System.Linq.Enumerable.TryGetFirst[TSource](IEnumerable`1 source, Boolean& found)
+   at System.Linq.Enumerable.First[TSource](IEnumerable`1 source)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass15_1`1.<CompileQueryCore>b__0(QueryContext qc)
+2019-02-15 11:23:39.843 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 11:23:39.935 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 11:23:39.937 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 11:27:06.801 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"where ((([x].PublishStart != null) AndAlso ([x].PublishStart < Convert(DateTimeOffset.Now, Nullable`1))) AndAlso (Not(([x].PublishEnd != null)) OrElse ([x].PublishEnd > Convert(DateTimeOffset.Now, Nullable`1))))"' could not be translated and will be evaluated locally.
+2019-02-15 15:44:58.099 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"where ((([x].PublishStart != null) AndAlso ([x].PublishStart < Convert(DateTimeOffset.Now, Nullable`1))) AndAlso (Not(([x].PublishEnd != null)) OrElse ([x].PublishEnd > Convert(DateTimeOffset.Now, Nullable`1))))"' could not be translated and will be evaluated locally.
+2019-02-15 15:45:23.454 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 15:45:23.478 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 15:45:23.493 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 16:26:41.885 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:26:41.932 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:26:41.934 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 16:28:01.355 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"where ((([x].PublishStart != null) AndAlso ([x].PublishStart < Convert(DateTimeOffset.Now, Nullable`1))) AndAlso (Not(([x].PublishEnd != null)) OrElse ([x].PublishEnd > Convert(DateTimeOffset.Now, Nullable`1))))"' could not be translated and will be evaluated locally.
+2019-02-15 16:35:50.746 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"where ((([x].PublishStart != null) AndAlso ([x].PublishStart < Convert(DateTimeOffset.Now, Nullable`1))) AndAlso (Not(([x].PublishEnd != null)) OrElse ([x].PublishEnd > Convert(DateTimeOffset.Now, Nullable`1))))"' could not be translated and will be evaluated locally.
+2019-02-15 16:35:57.163 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:35:57.166 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:35:57.167 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 16:38:00.205 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:38:00.259 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:38:00.261 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 16:54:53.563 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:54:53.608 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:54:53.609 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 16:57:02.888 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:57:02.915 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:57:02.916 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 16:58:19.125 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:58:19.158 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:58:19.159 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 16:59:36.265 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:59:36.291 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 16:59:36.292 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 17:06:39.502 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 17:06:39.526 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 17:06:39.528 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 17:10:31.665 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 17:10:31.717 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 17:10:31.719 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
+2019-02-15 17:11:58.009 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 17:11:58.036 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"GroupBy([x.Brand], [x])"' could not be translated and will be evaluated locally.
+2019-02-15 17:11:58.037 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"Count()"' could not be translated and will be evaluated locally.
