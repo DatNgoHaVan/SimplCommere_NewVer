@@ -81,7 +81,13 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             //insert min max rating
             if (searchOption.Rating.HasValue)
             {
+                if(searchOption.Rating == 0)
+                {
+                    query = query.Where(x => x.RatingAverage == null || x.RatingAverage>=0);
+                }
+                else{
                 query = query.Where(x => x.RatingAverage >= searchOption.Rating.Value);
+                }
             }
 
             var brands = searchOption.GetBrands();

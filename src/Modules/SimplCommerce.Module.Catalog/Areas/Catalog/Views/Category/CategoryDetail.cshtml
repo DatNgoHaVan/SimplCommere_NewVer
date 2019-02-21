@@ -44,7 +44,7 @@
                                 {
                                     <li>
                                         <label class="checkbox">
-                                            <input type="checkbox" value="@brand.Slug" name="brand" checked="@Model.CurrentSearchOption.GetBrands().Contains(brand.Slug)">
+                                            <input hidden type="checkbox" value="@brand.Slug" name="brand" checked="@Model.CurrentSearchOption.GetBrands().Contains(brand.Slug)">
                                             @brand.Name
                                             <small>(@brand.Count)</small>
                                         </label>
@@ -204,9 +204,19 @@
 </div>
 
 <script>
-    function myFunction(rating) {
-        document.getElementById('idRating').value = rating;
-        document.getElementById("productFilter").submit();
+    function myFunction(rating) {   
+        var settings = @Html.Raw(Model.CurrentSearchOption.ToJson());
+        console.log(settings.rating);
+        if(rating == settings.rating )
+        {
+            document.getElementById('idRating').value = null;
+            settings.rating = null;
+            document.getElementById("productFilter").submit();
+        }
+        else{
+            document.getElementById('idRating').value = rating;
+            document.getElementById("productFilter").submit();
+        }
     }
 </script>
 
