@@ -99,7 +99,7 @@ Become a sponsor and get your logo on our README on Github with a link to your s
 
 SimplCommerce is licensed under the Apache 2.0 license.
 
-## Watch these files
+## Watch these files for filter rating
 ```bash
 product-filter
 filterOptions
@@ -109,4 +109,10 @@ SearchOption
 SearchController
 category cshtml
 Module/search
+```
+## Watch these files for same brand products
+```bash
+productDetail.cshtml
+ProductController.cs
+ProductDetail.cs
 ```

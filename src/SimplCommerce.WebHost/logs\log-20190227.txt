@@ -1,0 +1,94 @@
+2019-02-27 09:34:01.273 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 09:34:01.299 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 09:49:42.784 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 09:49:42.849 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 09:56:13.679 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 09:56:13.738 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 10:36:25.824 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 10:36:25.893 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 10:44:29.902 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 10:44:30.039 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 13:59:05.875 +07:00 [Error] [Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware] [{ Id: 1, Name: "UnhandledException" }] An unhandled exception has occurred while executing the request.
+System.NullReferenceException: Object reference not set to an instance of an object.
+   at SimplCommerce.Module.Catalog.Areas.Catalog.Controllers.ProductController.ProductDetail(Int64 id) in /mnt/3B710B7935906684/Training/SimplCommerce_NewVer/src/Modules/SimplCommerce.Module.Catalog/Areas/Catalog/Controllers/ProductController.cs:line 97
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-27 14:14:22.715 +07:00 [Error] [Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware] [{ Id: 1, Name: "UnhandledException" }] An unhandled exception has occurred while executing the request.
+System.InvalidOperationException: The property 'BrandId' is not a navigation property of entity type 'Product'. The 'Include(string)' method can only be used with a '.' separated list of navigation property names.
+   at Microsoft.EntityFrameworkCore.Query.Internal.IncludeCompiler.WalkNavigations(IEntityType entityType, IReadOnlyList`1 navigationPropertyPaths, IncludeLoadTree includeLoadTree, Boolean shouldThrow)
+   at Microsoft.EntityFrameworkCore.Query.Internal.IncludeCompiler.TryPopulateIncludeLoadTree(IncludeResultOperator includeResultOperator, IncludeLoadTree includeLoadTree, Boolean shouldThrow)
+   at Microsoft.EntityFrameworkCore.Query.Internal.IncludeCompiler.CreateIncludeLoadTrees(QueryModel queryModel, Boolean shouldThrow)
+   at Microsoft.EntityFrameworkCore.Query.Internal.IncludeCompiler.CompileIncludes(QueryModel queryModel, Boolean trackingQuery, Boolean asyncQuery, Boolean shouldThrow)
+   at Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitor.OptimizeQueryModel(QueryModel queryModel, Boolean asyncQuery)
+   at Microsoft.EntityFrameworkCore.Query.RelationalQueryModelVisitor.OptimizeQueryModel(QueryModel queryModel, Boolean asyncQuery)
+   at Microsoft.EntityFrameworkCore.Query.EntityQueryModelVisitor.CreateQueryExecutor[TResult](QueryModel queryModel)
+   at Microsoft.EntityFrameworkCore.Storage.Database.CompileQuery[TResult](QueryModel queryModel)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.CompileQueryCore[TResult](Expression query, IQueryModelGenerator queryModelGenerator, IDatabase database, IDiagnosticsLogger`1 logger, Type contextType)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.<>c__DisplayClass13_0`1.<Execute>b__0()
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQueryCore[TFunc](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.CompiledQueryCache.GetOrAddQuery[TResult](Object cacheKey, Func`1 compiler)
+   at Microsoft.EntityFrameworkCore.Query.Internal.QueryCompiler.Execute[TResult](Expression query)
+   at Microsoft.EntityFrameworkCore.Query.Internal.EntityQueryProvider.Execute[TResult](Expression expression)
+   at System.Linq.Queryable.FirstOrDefault[TSource](IQueryable`1 source, Expression`1 predicate)
+   at SimplCommerce.Module.Catalog.Areas.Catalog.Controllers.ProductController.ProductDetail(Int64 id) in /mnt/3B710B7935906684/Training/SimplCommerce_NewVer/src/Modules/SimplCommerce.Module.Catalog/Areas/Catalog/Controllers/ProductController.cs:line 84
+   at Microsoft.AspNetCore.Mvc.Internal.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at System.Threading.Tasks.ValueTask`1.get_Result()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextResourceFilter()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Rethrow(ResourceExecutedContext context)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeFilterPipelineAsync()
+   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeAsync()
+   at Microsoft.AspNetCore.Builder.RouterMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.StaticFiles.StaticFileMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.MigrationsEndPointMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.DatabaseErrorPageMiddleware.Invoke(HttpContext httpContext)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)
+2019-02-27 14:15:47.341 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:15:47.437 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:17:38.901 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:17:38.925 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:20:04.704 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:20:04.756 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:21:00.603 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:21:00.628 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:22:09.600 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:22:09.625 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:23:27.731 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:23:27.757 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 14:23:40.868 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 20500, Name: "Microsoft.EntityFrameworkCore.Query.QueryClientEvaluationWarning" }] The LINQ expression '"where ((([x].PublishStart != null) AndAlso ([x].PublishStart < Convert(DateTimeOffset.Now, Nullable`1))) AndAlso (Not(([x].PublishEnd != null)) OrElse ([x].PublishEnd > Convert(DateTimeOffset.Now, Nullable`1))))"' could not be translated and will be evaluated locally.
+2019-02-27 15:13:20.141 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.ThumbnailImage"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.
+2019-02-27 15:13:20.196 +07:00 [Warning] [Microsoft.EntityFrameworkCore.Query] [{ Id: 10106, Name: "Microsoft.EntityFrameworkCore.Query.IncludeIgnoredWarning" }] The Include operation for navigation '"[x].Product.OptionCombinations.Option"' is unnecessary and was ignored because the navigation is not reachable in the final query results. See https://go.microsoft.com/fwlink/?linkid=850303 for more information.

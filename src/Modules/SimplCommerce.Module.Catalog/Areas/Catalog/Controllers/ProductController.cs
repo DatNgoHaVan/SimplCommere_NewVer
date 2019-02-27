@@ -24,12 +24,21 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
         private readonly IMediator _mediator;
         private readonly IProductPricingService _productPricingService;
 
-        public ProductController(IRepository<Product> productRepository, IMediaService mediaService, IMediator mediator, IProductPricingService productPricingService)
+        //add IRepository brand
+        private readonly IRepository<Brand> _brandRepository;
+
+        public ProductController(IRepository<Product> productRepository, 
+                                IMediaService mediaService, 
+                                IMediator mediator, 
+                                IProductPricingService productPricingService,
+                                IRepository<Brand> brandRepository)
         {
             _productRepository = productRepository;
             _mediaService = mediaService;
             _mediator = mediator;
             _productPricingService = productPricingService;
+            //add repository brand
+            _brandRepository = brandRepository;
         }
 
         [HttpGet("product/product-overview")]
@@ -70,6 +79,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
         public async Task<IActionResult> ProductDetail(long id)
         {
+            
+
             var product = _productRepository.Query()
                 .Include(x => x.OptionValues)
                 .Include(x => x.Categories).ThenInclude(c => c.Category)
@@ -82,6 +93,8 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
             {
                 return NotFound();
             }
+
+            var brand = _brandRepository.Query().FirstOrDefault(x => x.Id == product.BrandId);
 
             var model = new ProductDetail
             {
@@ -100,6 +113,10 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 Specification = product.Specification,
                 ReviewsCount = product.ReviewsCount,
                 RatingAverage = product.RatingAverage,
+                //test add brand id 
+                BrandId = product.BrandId,
+                BrandName = brand.Name,
+                BrandSlug = brand.Slug,
                 Attributes = product.AttributeValues.Select(x => new ProductDetailAttribute { Name = x.Attribute.Name, Value = x.Value }).ToList(),
                 Categories = product.Categories.Select(x => new ProductDetailCategory { Id = x.CategoryId, Name = x.Category.Name, Slug = x.Category.Slug }).ToList()
             };
@@ -111,6 +128,18 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
             await _mediator.Publish(new EntityViewed { EntityId = product.Id, EntityTypeId = "Product" });
             _productRepository.SaveChanges();
+
+
+            var query = _productRepository.Query().Where(x => x.BrandId == product.BrandId && x.IsPublished && x.IsVisibleIndividually);
+            var products = query
+                .Select(x => ProductThumbnail.FromProduct(x))
+                .ToList();
+            foreach (var product2 in products)
+            {
+                product2.ThumbnailUrl = _mediaService.GetThumbnailUrl(product2.ThumbnailImage);
+                product2.CalculatedProductPrice = _productPricingService.CalculateProductPrice(product2);
+            }
+            model.Products = products;
 
             return View(model);
         }
@@ -199,5 +228,23 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
                 }
             }
         }
+
+        
+
+        // private void MapSameBrandProductToProductVm(Product product, ProductDetail model, long brandId)
+        // {
+        //     var query = _productRepository.Query().Where(x => x.BrandId == brandId);
+        //     var products = query
+        //         .Select(x => ProductThumbnail.FromProduct(x))
+        //         .ToList();
+
+        //     foreach (var product in products)
+        //     {
+        //         product.ThumbnailUrl = _mediaService.GetThumbnailUrl(product.ThumbnailImage);
+        //         product.CalculatedProductPrice = _productPricingService.CalculateProductPrice(product);
+        //     }
+
+        //     model.Products = products;
+        // }
     }
 }

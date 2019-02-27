@@ -1,0 +1,6 @@
+{
+  "id": "SimplCommerce.Module.ProductSameBrand",
+  "name": "Same Brand Products",
+  "isBundledWithHost": true,
+  "version": "1.0.0"
+}

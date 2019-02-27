@@ -13,5 +13,7 @@ namespace SimplCommerce.Module.Catalog.Models
         public Product LinkedProduct { get; set; }
 
         public ProductLinkType LinkType { get; set; }
+
+        
     }
 }

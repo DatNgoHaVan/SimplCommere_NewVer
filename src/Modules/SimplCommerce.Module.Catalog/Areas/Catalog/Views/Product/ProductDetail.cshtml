@@ -2,6 +2,7 @@
 
 @model SimplCommerce.Module.Catalog.Areas.Catalog.ViewModels.ProductDetail
 
+
 @inject SignInManager<User> SignInManager
 
 @{
@@ -266,6 +267,18 @@
 }
 
 @await Component.InvokeAsync("ProductRecentlyViewed", new { productId = Model.Id })
+
+<div>
+    <h6>Same brand product @Model.BrandName</h6>
+    <div class="row product-list">
+            @foreach (var product in Model.Products)
+            {
+                <div class="col-sm">
+                    <partial name="_ProductThumbnail" model="product" />
+                </div>
+            }
+    </div>
+</div>
 
 <div>
     <h3>@Localizer["Customer reviews"]</h3>
