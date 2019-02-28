@@ -271,10 +271,12 @@
 <div>
     <h6>Same brand product @Model.BrandName</h6>
     <div class="row product-list">
-            @foreach (var product in Model.Products)
+            @foreach (var product in Model.Products.Take(5))
             {
-                <div class="col-sm">
+                <div style="width: 20%;">
+                    <div style="padding: 0 3px;">
                     <partial name="_ProductThumbnail" model="product" />
+                    </div>
                 </div>
             }
     </div>

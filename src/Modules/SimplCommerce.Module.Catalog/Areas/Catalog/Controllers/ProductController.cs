@@ -131,6 +131,7 @@ namespace SimplCommerce.Module.Catalog.Areas.Catalog.Controllers
 
 
             var query = _productRepository.Query().Where(x => x.BrandId == product.BrandId && x.IsPublished && x.IsVisibleIndividually);
+            query = query.Include(x => x.ThumbnailImage);
             var products = query
                 .Select(x => ProductThumbnail.FromProduct(x))
                 .ToList();
